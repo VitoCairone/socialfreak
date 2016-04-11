@@ -1,0 +1,5 @@
+rails g controller pages
+
+rails g controller sessions
+
+rails g model User provider:string uid:string name:string location:string image_url:string url:string
