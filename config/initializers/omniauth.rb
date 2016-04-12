@@ -7,3 +7,7 @@ Rails.application.config.middleware.use OmniAuth::Builder do
   provider :facebook, '1092342727475575', 'edeac296b58eac60d206a9da6b3b4477',
   scope: 'public_profile', info_fields: 'id,name,link'
 end
+
+OmniAuth.config.on_failure = Proc.new do |env|
+	SessionsController.action(:auth_failure).call(env)
+end
